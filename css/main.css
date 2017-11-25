@@ -1,0 +1,66 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'futura';
+  background: '#181823';
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#container-score {
+  position: absolute;
+  z-index: 999;
+  top: 75px;
+  left: 10px;
+}
+
+.startit {
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
+  text-align: center;
+  top: 50%;
+}
+
+.startit a {
+  color: #fefefe;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fefefe;
+  padding: 30px;
+}
+
+.startit h2 {
+  color: #fefefe;
+  padding-top: 40px;
+}
+
+#container-score h2 {
+  color: #fefefe;
+  MARGIN:0
+}
+
+#container-score #score {
+  font-size: 1em;
+}
+
+.soundController {
+  position: fixed;
+  font-size: 1.5em;
+  top: 10px;
+  left: 10px;
+  color: #fefefe;
+}
+
+.soundController a {
+  color: #fefefe;
+}
+.soundController h4{
+  margin:0;
+}
