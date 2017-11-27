@@ -1,6 +1,9 @@
 
+(function(){
+
 var iconsBoomContainer = document.getElementById('iconsBoom');
 var iconsBoomContext = iconsBoomContainer.getContext('2d');
+
 var icons = new Array();
 var maxIcons = 10; // Max icons a carregar
 var initialIconsToKill = 20; // Quantos icons iniciais;
@@ -26,12 +29,44 @@ iconsBoomContainer.width = (iconsBoomContainer.clientWidth + iniWidth);
 iconsBoomContext.fillRect(0, 0, iconsBoomContainer.width, iconsBoomContainer.height);
 iconsBoomContext.fillStyle = "#181823";
 
+//RESPONSIVE
+
+function setCanvasScalingFactor() {
+    return window.devicePixelRatio || 1;
+}
+function resizeCanvas() {
+    //Gets the devicePixelRatio
+    var pixelRatio = setCanvasScalingFactor();
+
+    //The viewport is in portrait mode, so var width should be based off viewport WIDTH
+    if (window.innerHeight > window.innerWidth) {
+        //Makes the canvas 100% of the viewport width
+        var width = Math.round(1.0 * window.innerWidth);
+    }
+  //The viewport is in landscape mode, so var width should be based off viewport HEIGHT
+    else {
+        //Makes the canvas 100% of the viewport height
+        var width = Math.round(1.0 * window.innerHeight);
+    }
+
+    //This is done in order to maintain the 1:1 aspect ratio, adjust as needed
+    var height = width;
+
+    //This will be used to downscale the canvas element when devicePixelRatio > 1
+    aWrapper.style.width = width + "px";
+    aWrapper.style.height = height + "px";
+
+    //pixelRatio will be either an integer or floating point number
+    canvas.width = width * pixelRatio;
+    canvas.height = height * pixelRatio;
+}
 
 document.getElementById('startit').style.display = 'block';
-document.getElementById('startit').innerHTML = "<a id='playIcon' href='#' onclick='startIt()'><i class='fa fa-play'></i></a><h2 id='phrase'>Blow the icons</h2>";
+document.getElementById('startit').innerHTML = "<a id='playIcon' href='#'><i class='fa fa-play'></i></a><h2 id='phrase'>Blow the icons</h2>";
 document.getElementById('container-score').style.display = 'none';
 document.getElementById('soundCheck').style.display = 'none';
 
+document.getElementById('startit').addEventListener('click',startIt);
 
 function timeCounter() {
   document.getElementById('deadline').innerHTML = deadline;
@@ -80,6 +115,7 @@ function calculateSpeed() {
 }
 
 function draw() {
+
   iconsBoomContext.fillRect(0, 0, iconsBoomContainer.width, iconsBoomContainer.height);
   iconsBoomContext.fillStyle = "#181823";
   calculateSpeed();
@@ -87,10 +123,12 @@ function draw() {
     allIcons = icons[i];
     allIcons.refreshStuff();
   }
+  console.log('hgfhgdhgf');
   request = window.requestAnimationFrame(draw);
 }
 
 function displayIcons() {
+
   for (var i = 0; i < initialIconsToKill; i++) {
     icon = new Icon(getRandomxPos(), getRandomyPos(), iniWidth, iniheight, iniVx, iniVy, getRandomAngle(), getRandomIconImage(), iniPoint);
     icons.push(icon);
@@ -200,3 +238,4 @@ function endIt() {
   background_sound.pause();
 
 }
+})();
