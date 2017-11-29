@@ -7,6 +7,10 @@ html, body {
   background: '#181823';
 }
 
+#wapperGame {
+
+}
+
 canvas {
   width: 100%;
   height: 100%;
@@ -20,12 +24,12 @@ canvas {
 }
 
 .startit {
-  width: 75%;
-  position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
-  text-align: center;
-  top: 50%;
+    width: 75%;
+    position: fixed;
+    left: 50%;
+    margin-left: -37.5%;
+    text-align: center;
+    top: 50%;
 }
 
 .startit a {
@@ -43,7 +47,7 @@ canvas {
 
 #container-score h2 {
   color: #fefefe;
-  MARGIN:0
+  MARGIN: 0
 }
 
 #container-score #score {
@@ -61,6 +65,7 @@ canvas {
 .soundController a {
   color: #fefefe;
 }
-.soundController h4{
-  margin:0;
+
+.soundController h4 {
+  margin: 0;
 }
